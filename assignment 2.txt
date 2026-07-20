@@ -1,0 +1,74 @@
+Activity 02
+
+1)
+
+1. Product Manager
+What they do: Defines feature requirements and priorities for the inventory project.
+What they care about: Meeting customer needs while keeping the project on schedule.
+
+2. UX/UI Designer
+What they do: Designs the screen layout and visual flow for live stock updates.
+What they care about: Creating a clear and simple user experience.
+
+3. Front-End Developer
+What they do: Builds the website interface that displays stock levels to customers.
+What they care about: Responsive and fast web pages that show accurate data.
+
+4. Back-End Developer
+What they do: Builds the server logic and database systems that track real-time inventory.
+What they care about: Server reliability, data accuracy, and fast processing speeds.
+
+5. Mobile Developer
+What they do: Updates the mobile app to display live inventory updates.
+What they care about: App performance and making sure mobile features match the website.
+
+6. QA Engineer
+What they do: Tests the software to find bugs and edge cases before release.
+What they care about: Releasing a reliable product that does not break under pressure.
+
+7. DevOps Engineer
+What they do: Manages server infrastructure and automates software deployment.
+What they care about: Keeping the system online, secure, and easy to update without downtime.
+
+8. Engineering Manager / Tech Lead
+What they do: Coordinates the engineering team and removes technical roadblocks.
+What they care about: Team productivity, code quality, and meeting project deadlines.
+
+2)
+
+1. Back-End Developer
+A Back-End Developer starts by writing server logic to update stock counts whenever an order is placed. Midday, they optimize database queries so inventory checks happen in milliseconds. Later, they work with front-end developers and QA engineers to fix data syncing issues and make sure the server can handle high order volumes.
+
+2. QA Engineer
+A QA Engineer starts the day writing test scenarios to cover tricky situations, like thousands of customers trying to buy the last item at the exact same time. They run these tests and document any bugs they find. In the afternoon, they review server logs with back-end developers to fix errors, always looking for ways the system might break.
+
+3. DevOps Engineer
+A DevOps Engineer begins by checking server performance and building automated deployment scripts. In the afternoon, they practice deploying the new feature on a test server to ensure there is no downtime when it goes live. They set up monitoring tools to alert the team if server latency spikes during rollout, keeping the site stable and secure.
+
+3)
+
+1. Back-End Developer -> IT Systems Technician
+Similarities: Both work behind the scenes with core system logic. Both use technical troubleshooting to fix complex issues and focus on keeping system infrastructure running smoothly.
+
+2. QA Engineer -> Technical Support / Quality Control
+Similarities: Both serve as a final check to catch errors before they affect the end user. Both require strong attention to detail, clear bug documentation, and an ability to spot edge cases.
+
+3. DevOps Engineer -> Network / System Administrator
+Similarities: Both focus on system health, uptime, and security. Both set up monitoring tools, manage access permissions, and respond quickly to outages.
+
+4)
+
+1. Programming Role | Day-to-Day Focus | How I've Seen This Role Before | Key Skill I Already Have
+Product Manager | Define requirements and priorities | Project Lead | Stakeholder communication and planning
+2. UX/UI Designer | Create user interfaces and flows | Document Writer / Guide Creator | Understanding user needs
+3. Front-End Dev | Build customer-facing website pages | Dashboard / Web Tool Creator | Visual organization and detail
+4. Back-End Dev | Build server logic and database APIs | IT Systems Technician | Technical troubleshooting
+5. QA Engineer | Test software and find edge cases | Technical Support / Quality Control | Systematic problem solving
+6. DevOps Engineer | Deploy software and maintain servers | Network / System Administrator | Infrastructure monitoring
+
+reflection:
+1. The DevOps Engineer role surprised me most. I originally thought developers uploaded code directly to a site, but I overlooked the work needed to manage cloud servers, continuous deployments, and traffic spikes safely.
+
+2. In my past work, I depended most on System Administrators who kept systems operational. That role is most similar to a DevOps Engineer because both focus on keeping infrastructure stable and reliable under pressure.
+
+3. I would gravitate toward the QA Engineer role. My background in technical support and troubleshooting has prepared me to spot edge cases, document issues, and test systems methodically.
