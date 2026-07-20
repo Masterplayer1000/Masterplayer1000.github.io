@@ -1,0 +1,116 @@
+
+1)
+
+An application that uses community feedback to report non-emergency issues with public property, which allows the report to get to those responsible and users can observe the status of the report.
+
+2)
+
+1.
+see: A login button with boxes to enter credentials
+do:  Enter login credentials and hit sign in.
+happens: The application checks it database to validate credentials. if correct it signs user in.
+Front End: Credential input, login button
+Back End:  gets front end request and quereies database, will return if successful or failed
+Database:  Queried on credentials and weather they are correct.
+API:        sends request to login with credentials to backend
+Infrastructure: logging when last logged in and from where for security purposes
+
+
+
+2.
+see: a box with the words report written on it.
+do:  If you see something that needs a report you click on it.
+happens: It redirects/opens the report so that you can start entering the info to submit the report
+Front End: Report button, navigation, report form display.
+Back End: Determines which form to load and verifies the user has permission to submit a report.
+Database: May retrieve report categories and location options.
+API: Requests the report form and related data from the server.
+Infrastructure: Web server delivers the page securely and quickly
+
+
+3.
+see: submit button at bottom of report
+do: once you are done writing report you will press it.
+happens: It will save your answers and will create a report for an employee to look over and give it to the right people
+Front End: Validates required fields and sends the completed form.
+Back End: Processes the report, assigns a tracking number, sets the status to New, and routes it to the correct department.
+Database: Stores the report, user information, status, and timestamp.
+API: Sends the report data from the front end to the server.
+Infrastructure: Securely stores the data and ensures the request is processed reliably.
+
+4.
+see:  A status report for a previously submitted report
+do:  Can check if there is a discrepancy, like it says the issue is resolved however it is still there. 
+happens: Nothing unless the status is incorrect in which case you would open another report. 
+Front End: Status page and tracking information.
+Back End: Looks up the report and formats the status history.
+Database: Retrieves the report details and status updates.
+API: Sends a request for the selected report's information.
+Infrastructure: Fast retrieval through hosted servers and possible caching.
+
+5.
+see: Responsible party screen shows that a new report was submitted to their area.
+do:  can click on the report or the open button
+happens: will open the submitted report which they can now view.
+Front End: Dashboard, report list, and report details page.
+Back End: Confirms employee permissions and retrieves the report.
+Database: Reads the report and assignment information.
+API: Requests report details from the server.
+Infrastructure: Keeps employee dashboards available and responsive.
+
+6.
+see: You entered the report wrong and you see an edit report button
+do:  you click on edit report
+happens: the report you submitted before is opened and now you can make changes to reflect its real situation
+Front End: Edit form and Save button.
+Back End: Validates the changes and determines whether editing is allowed.
+Database: Updates the existing report record.
+API: Sends the edited information to the server.
+Infrastructure: Records changes and may maintain an audit log.
+
+7.
+see: Your settings page with a logout button when leaving on a public computer
+do:  you click log out
+happens: the site assumes you are done with using the application and will no longer associate your computer with formally logged in user.
+Front End: Log Out button and redirect to the login page.
+Back End: Invalidates the user's session or authentication token.
+Database: May record the logout time or session history.
+API: Sends the logout request to the server.
+Infrastructure: Securely removes the active session and protects user data.
+
+8.
+see: a search bar when looking at incident page
+do:  enter a search for a specific report you wish to track
+happens: Reports matching the requested info will aggregate by priority chosen.
+Front End: Search box and results list.
+Back End: Processes the search query and filters results.
+Database: Searches report records and returns matching entries.
+API: Sends the search request and receives the results.
+Infrastructure: Optimizes search performance using indexes or caching.
+
+4)
+Front-End Developers:
+Responsible for making the application easy to understand and visually appealing. They design the user interface so important features are easy to find and use, create forms and buttons, and ensure the application works well on different devices and browsers.
+
+Back-End Developers:
+Responsible for the application's logic and functionality. They process user requests, validate information, manage user accounts, assign reports to the correct department, enforce business rules, and make sure the application works correctly behind the scenes.
+
+Database Administrators (DBAs) / Data Engineers:
+Manage the application's data. They design and maintain the database, ensure reports and user information are stored accurately, improve database performance, create backups, and help protect sensitive information from being lost or accessed by unauthorized users.
+
+QA (Quality Assurance) Testers:
+Test the application before updates are released. They look for bugs, verify that features work as expected, test different scenarios (such as invalid logins or incomplete reports), and ensure changes don't break existing functionality.
+
+DevOps Engineers:
+Keep the application running reliably. They deploy updates, monitor servers, improve security, manage cloud infrastructure, perform backups, and respond quickly if the application experiences outages or performance issues.
+
+Product Managers and Designers:
+Product managers decide which features should be built based on user and business needs. Designers plan the layout, appearance, and overall user experience to make the application intuitive and efficient.
+
+Connection to My Experience:
+My experience has involved problem-solving, troubleshooting, and helping users work through technical issues. Those skills relate closely to quality assurance and product design because they require understanding user needs, identifying problems, and finding practical solutions.
+
+5)
+1. its a lot more comprehensive than I thought. even a simple application needs a good workflow to ensure it works properly and successful for the company.
+2. backend as its the most interesting to me and the skills it requires to succeed in it are the most fun to learn.
+3. I think most of what I do can help me especially API work and getting your environments set up in applications like maven. As its something that most large scalable projects use. 
