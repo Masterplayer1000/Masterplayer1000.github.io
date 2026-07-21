@@ -1,0 +1,99 @@
+NOTE ON DELIVERABLES:
+I am currently away from my main workstation, so I cannot execute the terminal commands, organize the local digital files, or take the required screenshots of the folders and bookmarks at this exact moment. I have outlined my complete physical and digital plan below and will implement the digital organization and attach the screenshots as soon as I return to my setup.
+
+ACTIVITY 03: DEVELOPER WORKSPACE PLAN
+
+PART 1: PHYSICAL SETUP
+
+Current State Summary:
+Currently working with a dual-monitor setup, keyboard, and mouse (without a mousepad), seated in a standard office chair with good ambient lighting. Posture tends to slump, monitors are positioned slightly above natural eye level, and feet fidget constantly.
+
+This Week's Improvements (Free/Cheap):
+
+Adjust monitor, desk, and chair height so the top third of the screens sits at eye level and arms rest comfortably at 90 degrees.
+
+Focus on conscious posture corrections to eliminate slumping.
+
+This Month's Improvements (Under $100):
+
+Buy an ergonomic mousepad with wrist support to alleviate active wrist pain during coding sessions.
+
+Timeline for Future Upgrades:
+
+Upgrade to an ergonomic chair with dedicated lumbar support to sustain back alignment.
+
+Look into an under-desk footrest to accommodate foot movement and keep seating grounded.
+
+PART 2: DIGITAL ORGANIZATION
+
+Folder Structure:
+The primary development directory will be located at ~/dev/ and will contain the following subdirectories:
+
+projects/ (Active code repositories and scripts)
+
+learning/ (Coursework and tutorials)
+
+resources/ (Documentation and reference materials)
+
+tools/ (Configuration files)
+
+temp/ (Temporary experiments that can be safely deleted)
+
+Browser Bookmarks:
+A "Dev Resources" folder on the bookmarks bar containing official documentation, learning platforms, and reference materials.
+
+PART 3: DAILY ROUTINE
+
+Start of Day (First 10 minutes):
+
+Review today's priority task.
+
+Open necessary tools (IDE, terminal, required docs).
+
+Set focus timer.
+
+Deep Work Block (60-90 minutes):
+
+Work exclusively on the active task.
+
+Keep communication apps closed.
+
+Minimize unrelated browser tabs.
+
+Break (5-10 minutes):
+
+Stand up and stretch legs/lower back.
+
+Look at something 20+ feet away to rest eyes.
+
+Hydrate.
+
+Mid-Day Review (5 minutes):
+
+What progress did I make?
+
+What is blocking me?
+
+What is the next immediate step?
+
+End of Day (10 minutes):
+
+Document where I left off (leave a breadcrumb comment in code).
+
+Note the first task for tomorrow.
+
+Close all applications and clear the physical desk.
+
+Review Schedule:
+I will review and adjust this workspace plan monthly to ensure the digital folders aren't becoming a dumping ground and that the ergonomic adjustments are working.
+
+REFLECTION QUESTIONS
+
+Q1: What surprised you most about auditing your current workspace? Did you notice discomfort or habits you hadn't consciously registered?
+Answer: What surprised me most was catching the passive habit of slumping in my chair. Because I wasn't experiencing active back or neck strain, I assumed my posture was fine. Auditing the alignment revealed that my screens were set slightly too high, forcing a subtle slouch. I also hadn't consciously registered how much my feet move around while working; recognizing that fidgeting habit highlighted the need to ground my lower body so I can maintain focus.
+
+Q2: Which change do you think will have the biggest impact on your focus and well-being? Why?
+Answer: Getting an ergonomic mousepad will have the biggest immediate impact. While auditing the rest of my setup, I realized my wrists are actively hurting. Adjusting desk height is helpful, but adding dedicated wrist support addresses an active source of physical friction. Alleviating that pain will prevent long-term strain and allow me to sustain focus during long development sessions without physical distraction.
+
+Q3: How is organizing your digital workspace different from organizing your physical workspace? What parallels do you notice?
+Answer: Organizing a physical workspace is primarily a matter of spatial management—if you have the physical space, you can usually store items away neatly. Digital organization is fundamentally different because while it's incredibly fast to "clean up" by moving files into folders, it is significantly easier to forget exactly where you stored those digital items compared to physical objects. The parallel between the two is that both types of clutter create friction: physical clutter limits your movement and distracts the eye, while mismanaged digital clutter drains time and mental energy when searching for lost resources.
