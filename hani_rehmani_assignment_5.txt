@@ -1,0 +1,70 @@
+hani_rehmani_assignment_5
+
+
+# My Tech Health Plan
+
+## Current Baseline
+- Sleep: ~6 hours per night (want 7–8)
+- Exercise: Minimal intentional movement during the week
+- Screen breaks: Infrequent; combining a full-time Java developer role with OMSCS prep and local LLM tinkering means prolonged, uninterrupted screen exposure.
+- Stress level: 7/10 (juggling the transition to the new role, upcoming coursework, and personal projects)
+
+## My Top Risk Zones
+1. Sedentary lifestyle – Commuting in the Camry, sitting at the desk in Woodlawn all day, and coming home to sit for gaming or writing fanfiction leads to 10+ hours of sitting.
+2. Eye strain – Staring at screens for work, then immediately transitioning to Minecraft or writing at home without visual breaks.
+3. Burnout risk – Trying to balance a career, a part-time master's degree, and intensive technical hobbies without dedicated mental recovery time.
+
+## My Commitments
+
+### Eye Health
+- 5-minute break every 30 minutes using the 20-20-20 rule.
+- Set a desktop timer to remind me.
+- During breaks: look away from the monitor, close my eyes, or stretch my neck.
+
+### Movement
+- 20-minute walk around Ellicott City each weekday morning before commuting.
+- Stand up and stretch every 60 minutes during work and study sessions.
+- Posture check: ensure my workstation is ergonomically set up to prevent back and shoulder pain.
+
+### Sleep
+- Hard stop on all screen-based activities (coding, OMSCS prep, LLM training, writing) by 9:30 PM.
+- Bed by 10:30 PM.
+- Wind down by reading a physical book or relaxing away from devices.
+- Disconnect completely one evening per week.
+
+### Nutrition
+- Utilize weekend cooking projects (like prepping cheese sauces or experimenting with meat textures) to meal-prep lunches for the workweek so I don't skip meals while focused.
+- Keep a water bottle at the desk at all times; aim for 8 glasses a day.
+- Refill water every time I get up for a screen break.
+
+### Mental Health
+- Spend dedicated, screen-free time talking with my mom or brother at least twice a week.
+- Engage in cooking or food science experiments as a hands-on, non-digital creative outlet.
+- If feeling overwhelmed by the master's workload or job, step away for a walk instead of forcing it.
+
+### Caffeine
+- Limit coffee/caffeine to morning hours.
+- No caffeine after 2:00 PM to ensure it doesn't disrupt sleep.
+
+## How I'll Remember
+- Phone alarms and desktop reminders for breaks and lunch.
+- Weekly check-in every Sunday evening to review this plan.
+- Share this plan with my brother so he can ask how I'm doing with it.
+
+## Reflection Questions
+
+What's one thing on your plan that you're genuinely worried you won't stick to? What would make it more doable? 
+- Stopping screen time by 9:30 PM, especially when deep into a coding project or outlining a new crossover chapter. Setting an automatic screen dimmer or physical alarm in another room might make it more doable to break the focus.
+
+Which of your risk zones feels most serious? What could happen if you don't address it over the next 3 months?
+- Burnout. If not addressed, the combination of full-time work and Georgia Tech coursework could become unsustainable, leading to exhaustion and a drop in performance across the board.
+
+Who will hold you accountable? 
+- My family at home.
+
+What's one small thing on your plan that you're confident you will do? 
+- Using my existing interest in cooking to ensure I have properly prepped, nutritious lunches for the week.
+
+I commit to this Tech Health Plan because my well-being is as important as my learning. I understand that burnout and injury would actually slow my progress. By protecting my health, I'm protecting my ability to learn and build a sustainable career.
+
+Hani Rehmani

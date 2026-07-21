@@ -1,0 +1,77 @@
+hani_rehmani_Assignment_4
+
+PART 1: ONE-PAGE SUMMARY
+
+Topic: What is DevOps?
+
+DevOps in Plain English:
+DevOps (short for Development and Operations) is a set of practices, tools, and cultural philosophies that combines software development (Dev) with IT operations (Ops). Its primary purpose is to shorten the software development lifecycle while delivering high-quality continuous updates. Instead of building software in isolation and handing it over to a separate operations team to deploy, DevOps integrates both disciplines into a continuous, collaborative loop.
+
+How It Works:
+At its core, DevOps relies on automation, continuous integration/continuous deployment (CI/CD) pipelines, and constant system monitoring. Developers write and test code locally, automated systems test and build that code automatically upon every commit, and deployment pipelines push verified updates straight to testing or production servers with minimal manual intervention.
+
+A Real Example:
+When a streaming platform like Netflix rolls out a new feature or bug fix, a DevOps pipeline automatically runs integration and security tests on the code, packages it into a container, and deploys it to cloud servers seamlessly without kicking millions of active viewers off the platform.
+
+Why Programmers Care:
+Without DevOps, developers waste immense amounts of time manually configuring environments, troubleshooting deployment bugs that only appear on production servers, and waiting weeks or months for release cycles. DevOps lets programmers focus on writing feature code while ensuring that software reaches users reliably, quickly, and securely.
+
+PART 2: FOCUS LOG
+
+Topic: What is DevOps?
+
+Before: I knew DevOps stood for Development and Operations and involved automation, but I didn't fully grasp the exact CI/CD workflow or why it replaced traditional deployment models.
+
+Session 1 Distractions:
+
+Brief urge to check notifications on my phone before putting it away.
+
+Impulse to open a second browser tab for unrelated reading.
+Focus Level: 3/5
+
+Session 2 Distractions:
+
+Moving phone into another room eliminated visual pull.
+
+Tempted to open email when reading a dense paragraph about CI/CD pipelines; wrote the task down on scratch paper and returned to research.
+Focus Level: 4/5
+
+Session 3 Distractions:
+
+Synthesizing thoughts for the summary required more active mental effort than reading, causing slight hesitation.
+
+Kept focused by adhering to the 15-minute timer boundary.
+Focus Level: 4/5
+
+What Helped:
+
+Setting a strict 15-minute timer for each block.
+
+Moving the phone out of the room completely.
+
+Taking handwritten scratch notes during research to stay active.
+
+Keeping only one browser window active.
+
+What Hurt:
+
+Slight afternoon fatigue.
+
+Habitual urge to switch tabs as soon as I hit a complex technical definition.
+
+How I Focus Best:
+When working toward a specific, concrete deliverable (like writing a 250-word synthesis) rather than open-ended, unstructured reading.
+
+PART 3: REFLECTION QUESTIONS
+
+Q1: What surprised you about your focus during this activity? Did you expect to focus better or worse? What actually happened?
+Answer: What surprised me most was how fast 15 minutes passes when you constrain yourself to a single browser tab with zero external inputs. I expected 15 minutes of uninterrupted reading to feel restrictive, but knowing there was a strict stop time actually made it much easier to resist the urge to check email or switch tabs. The timer created a helpful sense of structure rather than pressure.
+
+Q2: When did you feel your focus slipping the most? What was happening? What would help?
+Answer: My focus slipped the most in Session 2 when encountering dense terminology, and whenever I hit a technical concept that wasn't immediately intuitive, my default reflex was to look for a quick distraction. Catching that impulse, writing the unfamiliar term down on scratch paper, and looking up a simple one-sentence definition helped rebuild momentum.
+
+Q3: How is focusing on research different from focusing on coding?
+Answer: Research focus is about active synthesis—absorbing broad information, filtering out noise, and extracting core concepts. Coding focus is about precise logic implementation and problem-solving where feedback is immediate (e.g., code compiles or throws an error). Research carries a higher risk of tab-hoarding and rabbit holes because there is no compiler telling you when you're "finished," making strict time boundaries and target outputs essential.
+
+Q4: What one change would most improve your ability to focus next time?
+Answer: Physically removing my phone from the room entirely before starting the first session. Even having the device within visual range or arm's reach exerts a subtle cognitive pull, so eliminating it from the environment removes that baseline distraction altogether.
