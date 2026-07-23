@@ -1,0 +1,54 @@
+Activity 13: Algorithm Race Worksheet
+
+Part 1: Linear Search for "Stellar Data" (Item #19)
+Step 1: Apex Analytics - No
+Step 2: Blue River Tech - No
+Step 3: CloudScale Inc - No
+Step 4: DataFlow Systems - No
+Step 5: Evergreen Solutions - No
+Step 6: Forge Innovations - No
+Step 7: GreenTech Labs - No
+Step 8: Horizon Systems - No
+Step 9: Illuminate Digital - No
+Step 10: Jasper Networks - No
+Step 11: KineticAI Corp - No
+Step 12: LumiousCode - No
+Step 13: MindShift Labs - No
+Step 14: NextGen Studios - No
+Step 15: Orion Ventures - No
+Step 16: PrimeLogic - No
+Step 17: Quantum Leap - No
+Step 18: Radius Intelligence - No
+Step 19: Stellar Data - YES
+Total steps: 19
+
+Part 2: Binary Search for "Stellar Data" (Item #19)
+Step 1 - Low: 1, High: 32, Mid: 16, Item: PrimeLogic, Decision: After (Stellar Data > PrimeLogic) -> low becomes 17, Comparisons: 1
+Step 2 - Low: 17, High: 32, Mid: 24, Item: XcelTech Solutions, Decision: Before (Stellar Data < XcelTech) -> high becomes 23, Comparisons: 2
+Step 3 - Low: 17, High: 23, Mid: 20, Item: TechVision Group, Decision: Before (Stellar Data < TechVision) -> high becomes 19, Comparisons: 3
+Step 4 - Low: 17, High: 19, Mid: 18, Item: Radius Intelligence, Decision: After (Stellar Data > Radius) -> low becomes 19, Comparisons: 4
+Step 5 - Low: 19, High: 19, Mid: 19, Item: Stellar Data, Decision: Found!, Comparisons: 5
+Total steps: 5
+
+Part 3: Comparison Table
+Metric: Target item
+Linear Search: Stellar Data (#19)
+Binary Search: Stellar Data (#19)
+
+Metric: Steps taken
+Linear Search: 19
+Binary Search: 5
+
+Metric: Efficiency
+Linear Search: Very inefficient; had to check 19 items
+Binary Search: Much faster; eliminated half each step
+
+Part 4: Analysis
+Question 1: If the list had 1,000 names instead of 32, how many steps would linear search take in the worst case?
+Answer: 1000 steps
+
+Question 2: If the list had 1,000 names, how many steps would binary search take in the worst case?
+Answer: 10 steps
+
+Question 3: With 1 million names, linear search worst case and binary search worst case.
+Answer: Linear search worst case: 1000000 steps. Binary search worst case: 20 steps.
