@@ -1,0 +1,94 @@
+Code Reviews
+
+Snippet #1 Review
+
+What's Good:
+The logic inside the function is straightforward and concise. I appreciate that the function does one clear calculation and returns a single value without getting bogged down in overly complex or nested logic.
+
+The Problem:
+The problem is that the variable names (a, b, c, x, y, p, q, r) are completely ambiguous. Without the context that this calculates a tax total, the next developer reading this will have to guess what the parameters represent and what the function actually achieves.
+
+My Suggestion:
+Let's rename the function to something descriptive like "calculateTotal" and use clearer variable names so the code explains itself:
+
+function calculateTotal(price, tax, quantity) {
+let subtotal = price * quantity;
+let totalWithTax = subtotal + (subtotal * tax);
+return totalWithTax;
+}
+
+let basePrice = 100;
+let taxRate = 0.08;
+let itemQuantity = 2;
+
+let finalResult = calculateTotal(basePrice, taxRate, itemQuantity);
+
+Why This Matters:
+Descriptive naming significantly reduces cognitive load. It makes the code self-documenting, meaning future developers (including ourselves in a few months) can understand, use, and maintain it much faster without needing external documentation.
+
+Snippet #2 Review
+
+What's Good:
+I really like how readable and step-by-step these functions are. The variable names are perfectly clear, and it is very easy to see exactly which piece of data is being assigned to which element on the page.
+
+The Problem:
+The issue here is the heavy duplication of logic. "displayUserProfile" and "displayAdminProfile" are virtually identical except for the DOM element IDs. Because both functions do the exact same thing, any future changes—like altering the name format—will require updating multiple places, which increases the risk of bugs and inconsistencies.
+
+My Suggestion:
+We can combine these into a single function by passing in an optional prefix string. This also allows us to remove the intermediate variables to clean things up even further:
+
+function displayProfile(person, idPrefix = "") {
+let fullName = person.firstName + " " + person.lastName;
+
+document.getElementById(idPrefix + "nameBox").innerText = fullName;
+document.getElementById(idPrefix + "emailBox").innerText = person.email;
+document.getElementById(idPrefix + "phoneBox").innerText = person.phone;
+}
+
+// Usage:
+displayProfile(user);
+displayProfile(admin, "admin");
+
+Why This Matters:
+By adhering to the DRY (Don't Repeat Yourself) principle, we create a single source of truth. If we ever need to add a new field or fix a display bug, we only have to change the code in one single place.
+
+Snippet #3 Review
+
+What's Good:
+This function has a very clear, single responsibility. I also appreciate the clean interface—returning the name and email as a simple tuple makes it very intuitive for the rest of the application to use.
+
+The Problem:
+The code is currently written exclusively for the "happy path." It lacks error handling for the external network call. If the API goes offline, the request times out, or the JSON response doesn't contain the expected ['user']['name'] keys, the function will raise an unhandled exception and crash the entire program.
+
+My Suggestion:
+We should wrap the network call in a try...except block and use dictionary .get() methods so the function can fail gracefully:
+
+def fetch_user_data(user_id):
+try:
+response = requests.get(f"https://api.example.com/users/{user_id}", timeout=5)
+response.raise_for_status()
+
+    data = response.json()
+    user = data.get('user', {})
+    
+    return user.get('name'), user.get('email')
+    
+except Exception as e:
+    print(f"Error fetching data for user {user_id}: {e}")
+    return None, None
+Why This Matters:
+External services are inherently unpredictable. Adding explicit error handling prevents a third-party API failure from taking down our entire application, and returning None allows the calling code to decide how to handle the missing data gracefully.
+
+Reflection Questions
+
+Emotional Intelligence in Code Review: Why do you think the "compliment sandwich" approach is more effective than just listing problems? How would you feel receiving feedback in each style?
+
+The compliment sandwich prevents the author from becoming defensive. Code is a product of hard work, and receiving a flat list of errors can feel like a personal attack, leading to frustration. By starting with a positive note, it frames the interaction as collaborative rather than combative. I would feel much more receptive and motivated to fix my code if the reviewer acknowledged what I did well first.
+
+Balance Between Standards and Kindness: How do you identify when code review feedback is about enforcing team standards vs. imposing personal preference? When should you push back on a review?
+
+Feedback is about team standards when it aligns with established guidelines, improves maintainability (like DRY or naming conventions), or prevents bugs (like error handling). It crosses into personal preference when it dictates how to achieve a goal that is already working efficiently and cleanly just because the reviewer "would have done it differently." It is appropriate to gently push back when a requested change is purely stylistic and not codified in the team's style guide.
+
+Growing as a Reviewer: After giving these reviews, what aspects of code review do you feel confident about? What would you like to practice more?
+
+I feel confident in spotting readability issues, like poor naming conventions and duplicated code, because those are easily visible on the surface. I would like to practice identifying deeper architectural issues or performance bottlenecks, as those require a stronger technical grasp of the specific language being used. I also want to continue practicing my tone to ensure my suggestions always sound helpful rather than demanding.
