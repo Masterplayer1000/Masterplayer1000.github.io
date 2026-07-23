@@ -1,0 +1,44 @@
+Scenario 1: Browser Back Button History
+Structure: stack
+Reasoning: Web navigation requires you to return to the most recently visited page first. This perfectly matches a Last-In, First-Out (LIFO) model. Every time you click a new link, that page is pushed onto the top of the stack. When you click the back button, the browser pops that current page off the stack to reveal the page immediately beneath it.
+
+Scenario 2: Print Queue at an Office
+Structure: Queue
+Reasoning: To keep things fair, the printer must process documents in the exact order they were received. This requires a First-In, First-Out (FIFO) structure. New print jobs are added (enqueued) to the back of the line, and the printer pulls (dequeues) jobs from the front.
+
+Scenario 3: Contact List
+Structure: object/dictionary
+Reasoning: The primary operation here is a lookup based on a specific, unique identifier—the person's name. An Object/Dictionary allows you to map a key (name) to a value (phone number and email) for near-instant retrieval. If you used an array, the application would have to read through every single contact one by one until it found the right name, which is highly inefficient for large lists.
+
+Scenario 4: Shopping Cart
+Structure: Array/list
+Reasoning: The scenario specifies that you need to view the full list, easily update quantities, and—crucially—maintain the order in which items were added (most recent at the bottom). An Array/List preserves insertion order and allows you to easily iterate over the items to calculate a total price or display them to the user.
+
+Scenario 5: Unique Visitor Tracking
+Structure: set
+Reasoning: Order does not matter, and we explicitly want to ignore duplicates. The only question the system needs to answer is, "Does this IP address already exist in our record?" Sets are highly optimized for checking membership and automatically enforce uniqueness, making this operation instantaneous regardless of how many millions of visitors the site gets.
+
+Scenario 6: Deck of Cards
+Structure: Stack
+Reasoning: During gameplay, cards are drawn exclusively from the top of the deck, meaning the last card placed on top of the deck is the first one drawn. This is a strict LIFO operation. While you could technically use an Array, restricting interactions to only "pop" (draw) and "push" (return to top) effectively turns that Array into a Stack.
+
+Scenario 7: Employee Records
+Structure: Object/dictionary
+Reasoning: Similar to the contact list, HR needs to look up specific records quickly using a unique identifier (the Employee ID). Using a Dictionary where the ID is the key and the employee's data object is the value allows for instant lookups, insertions, and deletions without needing to maintain any specific order.
+
+Scenario 8: Undo Feature in a Text Editor
+Structure: stack
+Reasoning: When you press Ctrl+Z, you expect the text editor to reverse the very last action you took before moving on to older actions. This is textbook LIFO. Each keystroke or formatting change is pushed onto the stack; pressing undo pops the most recent state off, reverting the document to the state beneath it.
+
+Reflection Questions
+
+1. Which scenario's answer surprised you most?
+The shopping cart (Scenario 4) is often a surprising choice for an Array/List. It is tempting to think of a shopping cart as a Dictionary where the item name is the key and the quantity is the value. However, because the scenario specifically requires displaying items in the exact order they were added, an Array is necessary. It highlights how a single requirement ("most recent items appear at the bottom") completely changes the optimal architectural choice.
+
+
+2. How does understanding data structures help you write better code?
+It prevents massive performance bottlenecks as an application scales. For example, if you chose an Array instead of a Set for Scenario 5 (Unique Visitor Tracking), checking if an IP address exists would require the server to scan the entire list of previous visitors one by one. For a site with 100,000 daily visitors, that means checking 100,000 items for every new page load, which would eventually crash the application. Choosing a Set makes that check instant, regardless of scale.
+
+
+3. In your previous career, can you identify a real process that uses a data structure?
+A restaurant kitchen's ticket rail operates exactly like a Queue. When waiters submit orders, the tickets are placed at the end of the rail. The chefs pull tickets from the front of the rail to ensure that the tables that ordered first are served first (FIFO). If a chef treated the rail like a Stack (LIFO) and cooked the most recent tickets first, the people who ordered earliest would never get their food.
