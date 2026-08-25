@@ -1,0 +1,175 @@
+<#
+.SYNOPSIS
+    Batch-converts Microsoft Word (.docx) files into clean, structural HTML.
+.DESCRIPTION
+    This script automates Microsoft Word via COM to convert .docx files to "Filtered HTML",
+    and then heavily scrubs the output using Regular Expressions. It removes all Word-specific 
+    bloat including CSS, inline styles, classes, MSO conditional comments, and unnecessary spans.
+.PARAMETER Path
+    The path to a single .docx file, or a directory containing .docx files.
+.PARAMETER OutputPath
+    (Optional) The target directory to save the cleaned HTML files. 
+    If omitted: Single files save in their current directory. Folders save to a 'Clean_HTML' subfolder.
+.EXAMPLE
+    .\Convert-DocxToHtml.ps1 -Path "C:\Docs\Report.docx"
+.EXAMPLE
+    .\Convert-DocxToHtml.ps1 -Path "C:\Docs"
+.EXAMPLE
+    .\Convert-DocxToHtml.ps1 -Path "C:\Docs" -OutputPath "D:\Web\CleanFiles"
+#>
+
+param (
+    [Parameter(Mandatory=$true, HelpMessage="Path to a single .docx file or a folder containing .docx files")]
+    [string]$Path,
+
+    [Parameter(Mandatory=$false, HelpMessage="Optional custom output directory")]
+    [string]$OutputPath
+)
+
+# Enums for Word COM automation
+$wdFormatFilteredHTML = 10
+$wdDoNotSaveChanges = 0
+
+# --- 1. Input Path Resolution ---
+$targetItem = Get-Item -Path $Path -ErrorAction Stop
+$isFolder = $targetItem -is [System.IO.DirectoryInfo]
+
+$filesToProcess = @()
+if ($isFolder) {
+    # It's a folder: gather all .docx files
+    $filesToProcess = Get-ChildItem -Path $targetItem.FullName -Filter "*.docx" -File
+    
+    # Determine default output path for folders
+    if ([string]::IsNullOrWhiteSpace($OutputPath)) {
+        $OutputPath = Join-Path -Path $targetItem.FullName -ChildPath "Clean_HTML"
+    }
+} else {
+    # It's a single file
+    if ($targetItem.Extension -ne ".docx") {
+        Write-Host "Error: The provided file is not a .docx file." -ForegroundColor Red
+        exit
+    }
+    $filesToProcess = @($targetItem)
+    
+    # Determine default output path for single file
+    if ([string]::IsNullOrWhiteSpace($OutputPath)) {
+        $OutputPath = $targetItem.DirectoryName
+    }
+}
+
+if ($filesToProcess.Count -eq 0) {
+    Write-Host "No .docx files found to process." -ForegroundColor Yellow
+    exit
+}
+
+# Ensure Output Directory exists
+if (-not (Test-Path -Path $OutputPath)) {
+    Write-Host "Creating output directory: $OutputPath" -ForegroundColor Cyan
+    New-Item -ItemType Directory -Path $OutputPath | Out-Null
+}
+
+Write-Host "Starting conversion for $($filesToProcess.Count) file(s)..." -ForegroundColor Cyan
+Write-Host "Output location: $OutputPath" -ForegroundColor Cyan
+Write-Host "---------------------------------------------------" -ForegroundColor DarkGray
+
+# Initialize COM Object Variables
+$wordApp = $null
+$processedCount = 0
+
+try {
+    # --- 2. Initialize Word COM Application ---
+    $wordApp = New-Object -ComObject Word.Application
+    $wordApp.Visible = $false
+    $wordApp.DisplayAlerts = 0 # wdAlertsNone
+
+    # --- 3. Processing Loop ---
+    foreach ($file in $filesToProcess) {
+        $processedCount++
+        $prefix = "[$processedCount/$($filesToProcess.Count)]"
+        Write-Host "$prefix Processing: $($file.Name)... " -NoNewline -ForegroundColor White
+
+        $htmlFileName = $file.BaseName + ".html"
+        $htmlFilePath = Join-Path -Path $OutputPath -ChildPath $htmlFileName
+        
+        $document = $null
+
+        try {
+            # Open Document
+            $document = $wordApp.Documents.Open($file.FullName)
+            
+            # Save as Filtered HTML
+            $document.SaveAs([ref]$htmlFilePath, [ref]$wdFormatFilteredHTML)
+            
+            # Close Document
+            $document.Close([ref]$wdDoNotSaveChanges)
+            $document = $null
+
+            # --- 4. HTML Cleaning / Filtering Regime ---
+            # Read the raw HTML
+            $htmlContent = Get-Content -Path $htmlFilePath -Raw
+
+            # Aggressive Regex Cleaning Pipeline:
+            # 1. Remove XML namespaces/declarations
+            $htmlContent = $htmlContent -replace '<\?xml.*?\?>', ''
+            
+            # 2. Remove all <style> blocks
+            $htmlContent = $htmlContent -replace '(?si)<style[^>]*>.*?</style>', ''
+            
+            # 3. Remove all Mso Conditional Comments (e.g., <!--[if gte mso 9]>...<![endif]-->)
+            $htmlContent = $htmlContent -replace '(?si)<!--\[if.*?<!\[endif\]-->', ''
+            
+            # 4. Remove proprietary <o:p> wrappers (Office Paragraphs)
+            $htmlContent = $htmlContent -replace '(?i)</?o:p[^>]*>', ''
+            
+            # 5. Remove inline attributes: style, class, lang
+            $htmlContent = $htmlContent -replace '(?i)\s+(class|style|lang)="[^"]*"', ''
+            $htmlContent = $htmlContent -replace "(?i)\s+(class|style|lang)='[^']*'", ''
+            
+            # 6. Remove redundant structural tags: <span>, <font>, <div> (leaving inner content intact)
+            $htmlContent = $htmlContent -replace '(?i)</?(span|font|div)[^>]*>', ''
+            
+            # 7. Strip <meta> and <link> tags from the <head>
+            $htmlContent = $htmlContent -replace '(?si)<meta[^>]*>', ''
+            $htmlContent = $htmlContent -replace '(?si)<link[^>]*>', ''
+
+            # 8. Clean up empty tags left behind (empty paragraphs, empty bold/italics)
+            $htmlContent = $htmlContent -replace '(?i)<(p|b|i|strong|em)>\s*</\1>', ''
+
+            # 9. Compress multi-line whitespace gaps (blank lines) down to a single newline
+            $htmlContent = $htmlContent -replace '(?m)^\s+$', ''
+            $htmlContent = $htmlContent -replace '[\r\n]{2,}', "`r`n"
+
+            # Save the aggressively cleaned HTML back to disk (UTF-8 encoding)
+            Set-Content -Path $htmlFilePath -Value $htmlContent -Encoding UTF8
+
+            Write-Host "Success!" -ForegroundColor Green
+        }
+        catch {
+            Write-Host "Failed! ($($_.Exception.Message))" -ForegroundColor Red
+            
+            # Failsafe document closure
+            if ($null -ne $document) {
+                $document.Close([ref]$wdDoNotSaveChanges)
+                $document = $null
+            }
+        }
+    }
+}
+finally {
+    # --- 5. Code Quality & COM Cleanup ---
+    # This finally block executes even if the user hits Ctrl+C or a critical error occurs
+    Write-Host "---------------------------------------------------" -ForegroundColor DarkGray
+    Write-Host "Cleaning up background Word processes..." -ForegroundColor Cyan
+
+    if ($null -ne $wordApp) {
+        $wordApp.Quit([ref]$wdDoNotSaveChanges)
+        [System.Runtime.InteropServices.Marshal]::ReleaseComObject($wordApp) | Out-Null
+        $wordApp = $null
+    }
+    
+    # Force Garbage Collection to ensure the COM object lock is fully released
+    [System.GC]::Collect()
+    [System.GC]::WaitForPendingFinalizers()
+
+    Write-Host "Done." -ForegroundColor Green
+}
